@@ -1,5 +1,6 @@
 package com.example.dogsapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
@@ -9,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.example.dogsapp.databinding.ActivityMainBinding
+import com.example.dogsapp.doglist.DogListActivity
 import org.w3c.dom.Text
 import java.text.FieldPosition
 
@@ -78,10 +80,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ViewPager.OnPage
                 R.id.nextbtn -> {
                     if (getItem(0)<3){
                         viewPager?.setCurrentItem(getItem(1), true)
+                    } else {
+                        startActivity(
+                            Intent(this@MainActivity, DogListActivity::class.java)
+                        )
                     }
                     return
                 }
                 R.id.skipButton -> {
+                    startActivity(
+                        Intent(this@MainActivity, DogListActivity::class.java)
+                    )
                     return
                 }
             }
